@@ -1,0 +1,132 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/forms';
+@plugin '@tailwindcss/typography';
+
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton/optional/presets';
+@import '@skeletonlabs/skeleton/themes/nouveau';
+
+@source '../node_modules/@skeletonlabs/skeleton-svelte/dist';
+
+body {
+    padding: 2rem;
+}
+
+.anime-box {
+    --bg-color: var(--body-background-color-dark);
+    border: double 0.25rem transparent;
+    border-radius: 1.5rem;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    overflow: hidden;
+    width: 30rem;
+    display: inline-block;
+    margin: 1rem;
+}
+
+.anime-box-finished {
+    background-image: linear-gradient(
+        var(--bg-color), var(--bg-color)
+    ),
+        linear-gradient(
+            -40deg,
+            var(--color-success-700),
+            var(--color-success-400)
+        );
+}
+
+.anime-box-dropped {
+    background-image: linear-gradient(
+        var(--bg-color), var(--bg-color)
+    ),
+        linear-gradient(
+            -40deg,
+            var(--color-error-700),
+            var(--color-error-400)
+        );
+}
+
+.anime-box > *:only-child {
+    padding: 1rem;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.portrait {
+    border-radius: 2rem;
+    max-height: 15rem;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+h1 {
+    font-weight: 550;
+}
+
+.score {
+    background: linear-gradient(
+        var(--color-surface-800),
+        var(--color-surface-900)
+    );
+    --score-outline-color: var(--color-surface-700);
+    border: 1px solid var(--score-outline-color);
+    border-radius: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 4rem 4rem 4rem;
+    width: 12rem;
+    overflow: hidden;
+    margin-left: 0;
+    margin-right: 0;
+    margin: 1.3rem;
+}
+
+.score > div:nth-child(3) {
+    border-left: 1px solid var(--score-outline-color);
+    border-right: 1px solid var(--score-outline-color);
+}
+
+.score > div > div:first-child {
+    font-size: 0.7rem;
+}
+
+.score > div:first-child {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    font-size: 2rem;
+    border-bottom: 1px solid var(--score-outline-color);
+    width: 100%;
+    font-weight: 700;
+    color: var(--color-surface-100);
+}
+
+.notes-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary-100);
+}
+
+.status-separator {
+    margin: 0.4rem;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.new-anime-form {
+    border: 1px solid var(--color-primary-100);
+    border-radius: 1rem;
+    overflow: hidden;
+    padding: 1rem;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form > * {
+    margin: 1rem;
+    gap: 1rem;
+}
