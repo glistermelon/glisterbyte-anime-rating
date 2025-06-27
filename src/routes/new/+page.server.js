@@ -8,6 +8,8 @@ import { writeFile } from 'fs/promises';
 import path from 'path';
 import { env } from '$env/dynamic/private';
 
+const IMAGE_DIR = 'uploads';
+
 export const actions = {
     new: async ({ request }) => {
         const formData = await request.formData();
@@ -95,7 +97,7 @@ async function saveImage(image) {
     const buffer = Buffer.from(await image.arrayBuffer());
     const ext = path.extname(image.name);
     const filename = `${randomUUID()}${ext}`;
-    const filepath = path.join('static/uploads', filename);
+    const filepath = path.join(IMAGE_DIR, filename);
     await writeFile(filepath, buffer);
     return filename;
 
@@ -111,7 +113,7 @@ async function downloadAndSaveImage(imageUrl) {
     const buffer = Buffer.from(await response.arrayBuffer());
 
     const filename = `${randomUUID()}.${ext}`;
-    const filepath = path.join('static/uploads', filename);
+    const filepath = path.join(IMAGE_DIR, filename);
     await writeFile(filepath, buffer);
 
     return filename;

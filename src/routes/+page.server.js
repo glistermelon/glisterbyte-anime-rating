@@ -31,7 +31,8 @@ export async function load() {
 
   }
 
-  animeList.sort((a, b) => a.title.localeCompare(b.title));
+  //animeList.sort((a, b) => a.title.localeCompare(b.title));
+  animeList.sort((a, b) => b.score - a.score);
 
   return { anime: animeList };
 

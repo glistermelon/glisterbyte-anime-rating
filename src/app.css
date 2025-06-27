@@ -13,6 +13,12 @@ body {
     padding: 2rem;
 }
 
+.anime-boxes {
+    max-width: 96rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .anime-box {
     --bg-color: var(--body-background-color-dark);
     border: double 0.25rem transparent;
@@ -23,6 +29,7 @@ body {
     width: 30rem;
     display: inline-block;
     margin: 1rem;
+    vertical-align: middle;
 }
 
 .anime-box-finished {
